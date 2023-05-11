@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 13:02:49 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/24 17:09:06 by analexan         ###   ########.fr       */
+/*   Updated: 2023/05/11 11:37:29 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (slen + dlen);
 }
 /*
-// function has to be tested without -w -w -w (-lbsd)
+// cc ft_strlcat.c -lbsd && ./a.out
 #include <stdio.h>
 int	main(void)
 {
