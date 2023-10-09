@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:56:08 by analexan          #+#    #+#             */
-/*   Updated: 2023/05/11 11:36:50 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:17:18 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_intlen(int num)
 	if (num == -2147483648)
 		return (10);
 	intlen = 0;
-	if (num < 0)
+	if (num < 1)
 		intlen++;
 	while (num)
 	{

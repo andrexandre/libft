@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:26:32 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/28 14:00:25 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:22:01 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*temp;
+	void	*list_content;
 
 	new_lst = NULL;
 	while (lst)
 	{
-		temp = lst;
-		temp = ft_lstnew(f(temp->content));
+		list_content = f(lst->content);
+		temp = ft_lstnew(list_content);
 		if (!temp)
 		{
+			del(list_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
@@ -32,6 +34,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
+	// while (lst)
+	// {
+	// 	mapped_content = f(lst->content);
+	// 	node = ft_lstnew(mapped_content);
+	// 	if (!node)
+	// 	{
+	// 		del(mapped_content);
+	// 		ft_lstclear(&new_lst, del);
+	// 		return (NULL);
+	// 	}
+	// 	ft_lstadd_back(&new_lst, node);
+	// 	lst = lst->next;
+	// }
 
 /*
 #include "printlist.c"

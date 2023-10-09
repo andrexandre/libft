@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:38:36 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/28 12:50:40 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:18:46 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		s1len;
-	int		s2len;
 	int		i;
+	int		j;
 	char	*str;
 
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	i = 0;
-	str = (char *)malloc(s1len + s2len + 1);
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!str)
 		return (NULL);
-	while (i < s1len)
-	{
+	i = -1;
+	while (s1[++i])
 		str[i] = s1[i];
-		i++;
-	}
-	while (i < s1len + s2len)
-	{
-		str[i] = s2[i - s1len];
-		i++;
-	}
-	str[i] = 0;
+	j = -1;
+	while (s2[++j])
+		str[i + j] = s2[j];
+	str[i + j] = 0;
 	return (str);
 }
 /*

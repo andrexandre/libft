@@ -5,27 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 10:30:11 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/28 13:52:26 by analexan         ###   ########.fr       */
+/*   Created: 2023/10/09 11:05:24 by analexan          #+#    #+#             */
+/*   Updated: 2023/10/09 14:07:28 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordcount(char const *s, char c)
+static void	*free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		free(strs[i++]);
+	free(strs);
+	return (NULL);
+}
+
+char	*ft_strndup(char const *src, int n)
+{
+	int		i;
+	char	*str;
+
+	i = -1;
+	str = malloc(n + 1);
+	if (!str)
+		return (NULL);
+	while (src[++i] && i < n)
+		str[i] = src[i];
+	str[i] = 0;
+	return (str);
+}
+
+int	wordcount(char const *s, char c)
 {
 	int	i;
 	int	wc;
 
 	i = -1;
 	wc = 0;
-	while (s[++i])
-		if (s[i] != c && (s[i - 1] == c || i == 0))
+	while (s && s[++i])
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			wc++;
 	return (wc);
 }
 
-static char	**writestring(char const *s, char **strs, char c, int wc)
+char	**writestring(char const *s, char **strs, char c, int wc)
 {
 	int	i;
 	int	j;
@@ -38,10 +64,9 @@ static char	**writestring(char const *s, char **strs, char c, int wc)
 			s++;
 		while (s[j] && s[j] != c)
 			j++;
-		strs[i] = (char *)malloc(j + 1);
+		strs[i] = ft_strndup(s, j);
 		if (!strs[i])
-			return (NULL);
-		ft_strlcpy(strs[i], s, j + 1);
+			return (free_strs(strs));
 		s += j;
 		i++;
 	}
@@ -55,28 +80,11 @@ char	**ft_split(char const *s, char c)
 	int		wc;
 
 	wc = wordcount(s, c);
+	if (wc < 0)
+		return (NULL);
 	strs = malloc((wc + 1) * sizeof(char *));
 	if (!strs || !s)
 		return (NULL);
 	strs = writestring(s, strs, c, wc);
 	return (strs);
 }
-
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	str[] = "   how are you doing   ";
-	char	dlm = ' ';
-	char	**arr_of_arr = ft_split(str, dlm);
-	int	i = -1;
-
-	while (arr_of_arr[++i])
-		printf("arr[%i]: %s\n", i, arr_of_arr[i]);
-	i = -1;
-	while (arr_of_arr[++i])
-		free(arr_of_arr[i]);
-	free(arr_of_arr);
-	return (0);
-}
-*/
