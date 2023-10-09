@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 15:45:17 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/28 13:43:54 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:51:07 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,16 @@ int	main(void)
 	printf("len(set): %i\n", i);
 	printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, ft_strtrim(str, set));
 	// set[1] = 0;
-	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, ft_strtrim(str, set));
+	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, 
+		ft_strtrim(str, set));
 	// set[0] = 'i';
-	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, ft_strtrim(str, set));
+	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, 
+		ft_strtrim(str, set));
 	// str[4] = 'y';
 	// set[0] = 'h';
 	// set[1] = 'i';
-	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, ft_strtrim(str, set));
+	// printf("set: %s\nbefore: %s\nafter:  %s\n", set, str, 
+		ft_strtrim(str, set));
 	// //free(strs used!);
 	// return (0);
 }
