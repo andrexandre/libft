@@ -6,13 +6,13 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:05:24 by analexan          #+#    #+#             */
-/*   Updated: 2023/10/09 14:07:28 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:10:54 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*free_strs(char **strs)
+void	*free_strs(char **strs)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: analexan <analexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:39:54 by analexan          #+#    #+#             */
-/*   Updated: 2023/04/22 18:52:19 by analexan         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:13:18 by analexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (bptr[i])
 	{
 		while (bptr[i + j] && bptr[i + j] == lptr[j] && i + j < len)
-		{
-			if (!lptr[j + 1])
-			{
+			if (!lptr[j++ + 1])
 				return (&bptr[i]);
-			}
-			j++;
-		}
 		j = 0;
 		i++;
 	}
