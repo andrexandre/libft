@@ -1,6 +1,6 @@
 # Libft
 
-Libft is a custom implementation of the C standard library functions. This project is part of the 42 School curriculum and aims to recreate commonly used functions from the standard library, as well as some additional utility functions
+Libft is a custom implementation of the C standard library functions. This project aims to recreate commonly used functions from the standard library, as well as some additional utility functions
 
 ## Usage
 
@@ -102,3 +102,6 @@ make bonus
 | ft_lstmap | Apply function to content of all list's elements into new list |
 | ft_lstnew | Create new list element |
 | ft_lstsize | Count elements in a list |
+
+> [!NOTE]
+> This project is part of the 42 School curriculum
